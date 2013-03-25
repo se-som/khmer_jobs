@@ -4,7 +4,7 @@ use Zend\Form\Form;
 
 class CompanyForm extends Form
 {
-    public function __construct($name = null)
+    public function __construct($name = Null )
     {
         // we want to ignore the name passed
         parent::__construct('company');
@@ -20,44 +20,83 @@ class CompanyForm extends Form
             'attributes' => array(
                 'type'  => 'text',
                 'placeholder' => 'title',
-            ),
-            'options' => array(
-                'label' => 'Title:',
-               
-            ),  
+                'class' => 'input-xlarge'
+              
+            ),             
         ));
         $this->add(array(
-            'name' => 'artist',
+            'name' => 'company',
             'attributes' => array(
                 'type'  => 'text',
+                'blaceholder' =>'your company name',
+                'class' =>'input-xlarge'
             ),
             'options' => array(
-                'label' => 'Artist:',
+                //'label' => 'Company name:',
             ),
         ));
-		$this->add(array(
+        $this->add(array(
+            'name' => 'message',
+            'attributes' =>array(
+		'type' => 'textarea',
+                'blaceholder' => 'Discription your job',
+                'class' => 'input-xlarge'
+            ),
+            'options' => array(
+                 'required' => 'required',
+                 'pattern'  => '^0[1-68]([-. ]?[0-9]{2}){4}$'
+			),
+		));
+	$this->add(array(
              'name' => 'phoneNumber',
              'attributes' => array(
-				 'type' => 'tel',     
+                'type' => 'tel',
+                'blaceholder' => 'your phone number',
+                'class' => 'input-xlarge'
              ),
-			'options' => array(
-				 'label' => 'Phone number:',
-				 'required' => 'required',
-                 'pattern'  => '^0[1-68]([-. ]?[0-9]{2}){4}$',
+		'options' => array(
+		'required' => 'required',
+                'pattern'  => '^0[1-68]([-. ]?[0-9]{2}){4}$',
              ),
-		));
-		
-		$this->add(array(
-			'name' => 'message',
-			'attributes' =>array(
-				'type' => 'textarea',
-			),
-                        'options' => array(
-                            'label' => 'Message:',
-                            'required' => 'required',
-                            'pattern'  => '^0[1-68]([-. ]?[0-9]{2}){4}$'
-			),
-		));
+	));
+        $this->add(array(
+             'name' => 'email',
+             'attributes' => array(
+                'type' => 'tel',
+                 'blaceholder' => 'your e-mail',
+                 'class' => 'input-xlarge'
+             ),
+		'options' => array(
+		'required' => 'required',
+                'pattern'  => '^0[1-68]([-. ]?[0-9]{2}){4}$',
+             ),
+	));
+        $this->add(array(
+             'name' => 'web',
+             'attributes' => array(
+                'type' => 'url',
+                'blaceholder' => 'your web sit',
+                'class' => 'input-xlarge' 
+             ),
+		'options' => array(
+		'required' => 'required',
+                'pattern'  => '^0[1-68]([-. ]?[0-9]{2}){4}$',
+             ),
+	));	
+        $this->add(array(
+            'name' => 'closeDate',
+            'attributes' =>array(
+		'type' => 'date',
+                'blaceholder' => 'close date',
+                'class' => 'input-xlarge' 
+                
+            ),
+            'options' => array(
+		'required' => 'required',
+            ),
+	));
+        
+        
                 $this->add(array(
 			'name' => 'imageFile',
 			'attributes' =>array(
@@ -70,16 +109,7 @@ class CompanyForm extends Form
 			),
 		));
                 
-                 $this->add(array(
-			'name' => 'closeDate',
-			'attributes' =>array(
-				'type' => 'date',
-			),
-			'options' => array(
-				'label' => 'Close date:',
-				'required' => 'required',
-			),
-		));
+                 
                   $this->add(array(
                     'type' => 'Zend\Form\Element\Select',
                     'name' => 'gender',
@@ -102,6 +132,7 @@ class CompanyForm extends Form
                 'type'  => 'submit',
                 'value' => 'Go',
                 'id' => 'submitbutton',
+                'class' => 'btn btn-success',
             ),
         ));
     }

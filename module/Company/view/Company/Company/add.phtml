@@ -4,32 +4,72 @@
 $title = 'Add new job';
 $this->headTitle($title);
 ?>
-<h1><?php echo $this->escapeHtml($title); ?></h1>
+
 <?php
 $form = $this->form;
 //$form->setAttribute('action', $this->url('company/add', array('action' => 'add')));
 //$form->prepare();
 
-echo $this->form()->openTag($form);
+echo '<div class="label">';
+echo '<h3 class ="ui-widget-header"></h3>';
+//    echo $this->escapeHtml($title);
+//echo '</h3>';
+
+echo'<form class="form-horizontal">';
+
+
+  echo '<div class="control-group">';
+    echo '<label class="control-label">Title</label>';
+        echo '<div class="controls">';
+            echo $this->formRow($form->get('title'));
+        echo '</div>';
+    echo '</div>';
+ 
+    
+//    echo '<div class="control-group">';
+//    echo '<label class="control-label">Company name</label>';
+//        echo '<div class="controls">';
+//            echo $this->formRow($form->get('company'));
+//        echo '</div>';
+//    echo '</div>';
+//    echo '<div class="control-group">';
+//    echo '<label class="control-label">Close Date</label>';
+//        echo '<div class="controls">';
+//            echo $this->formRow($form->get('closeDate'));
+//        echo '</div>';
+//    echo '</div>';
+//    echo '<div class="control-group">';
+//    echo '<label class="control-label">Messag</label>';
+//        echo '<div class="controls">';
+//            echo $this->formRow($form->get('message'));
+//        echo '</div>';
+//    echo '</div>';
+//    echo '<div class="control-group">';
+//    echo '<label class="control-label">Tel:</label>';
+//        echo '<div class="controls">';
+//            echo $this->formRow($form->get('phoneNumber'));
+//        echo '</div>';
+//    echo '</div>';
+//    echo '<div class="control-group">';
+//    echo '<label class="control-label">E-mail</label>';
+//        echo '<div class="controls">';
+//            echo $this->formRow($form->get('email'));
+//        echo '</div>';
+//    echo '</div>';
+//    echo '<div class="control-group">';
+//    echo '<label class="control-label">Web sit:</label>';
+//        echo '<div class="controls">';
+//            echo $this->formRow($form->get('web'));
+//        echo '</div>';
+//    echo '</div>';
+    echo '<div class="control-group">';
+        echo '<div class="controls">';
+            echo $this->formSubmit($form->get('submit'));
+        echo '</div>';
+    echo '</div>';
+echo '</form>';
+echo '</div>';
+
+
 ?>
-<div class="form_element">
-<?php
-//echo $this->formHidden($form->get('id'));
-echo $this->formRow($form->get('title'));
-echo $this->formRow($form->get('artist'));
-echo $this->formRow($form->get('message'));
-echo $this->formRow($form->get('phoneNumber'));
-echo $this->formRow($form->get('imageFile'));
-echo $this->formRow($form->get('closeDate'));
-echo $this->formRow($form->get('gender'));
-
-
-
-
-//echo $this->formInput($form->get('message'));
-//echo $this->formElement($form->get('message'));
-?>
-</div>
-<?php
-echo $this->formSubmit($form->get('submit'));
-echo $this->form()->closeTag();
+<!-- <style>.labels{text-align: right}</style> -->
